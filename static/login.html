@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HelperHub - Login & Signup</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Poppins',sans-serif;
+    }
+
+    body{
+      min-height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      background:linear-gradient(135deg,#0077ff,#00c6ff);
+      padding: 20px;
+    }
+
+    .container{
+      width:900px;
+      max-width:100%;
+      min-height:550px;
+      background:white;
+      border-radius:25px;
+      overflow:hidden;
+      box-shadow:0 10px 40px rgba(0,0,0,0.2);
+      display:flex;
+      position:relative;
+    }
+
+    /* LEFT PANEL */
+    .left-panel{
+      width:40%;
+      background:linear-gradient(135deg,#0077ff,#005ad1);
+      color:white;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      padding:40px;
+      text-align:center;
+    }
+
+    .left-panel h1{
+      font-size:36px;
+      margin-bottom:20px;
+      cursor: pointer;
+    }
+
+    .left-panel p{
+      font-size:15px;
+      line-height:1.8;
+      opacity:0.9;
+    }
+
+    /* RIGHT PANEL */
+    .right-panel{
+      width:60%;
+      padding:40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position:relative;
+      overflow-y: auto;
+    }
+
+    .form-box{
+      width:100%;
+      transition:0.5s;
+    }
+
+    .form-box h2{
+      text-align:center;
+      margin-bottom:25px;
+      color:#222;
+    }
+
+    .input-group{
+      margin-bottom:15px;
+    }
+
+    .input-group label {
+      display: block;
+      font-size: 13px;
+      font-weight: 500;
+      margin-bottom: 5px;
+      color: #666;
+    }
+
+    .input-group input, 
+    .input-group select, 
+    .input-group textarea {
+      width:100%;
+      padding:12px 15px;
+      border:1px solid #ddd;
+      border-radius:12px;
+      outline:none;
+      font-size:14px;
+      transition:0.3s;
+    }
+
+    .input-group input:focus,
+    .input-group select:focus,
+    .input-group textarea:focus {
+      border-color:#0077ff;
+      box-shadow:0 0 5px rgba(0,119,255,0.3);
+    }
+
+    .btn{
+      width:100%;
+      padding:14px;
+      border:none;
+      border-radius:12px;
+      background:#0077ff;
+      color:white;
+      font-size:16px;
+      font-weight: 600;
+      cursor:pointer;
+      transition:0.3s;
+      margin-top:10px;
+    }
+
+    .btn:hover{
+      background:#005ad1;
+    }
+
+    .switch-text{
+      text-align:center;
+      margin-top:20px;
+      color:#666;
+      font-size: 14px;
+    }
+
+    .switch-text span{
+      color:#0077ff;
+      cursor:pointer;
+      font-weight:600;
+    }
+
+    /* Form Transitions */
+    #signupForm {
+      display: none;
+    }
+
+    .helper-fields {
+      display: none;
+      border-top: 1px dashed #ddd;
+      margin-top: 15px;
+      padding-top: 15px;
+      animation: fadeIn 0.4s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Toast style inline for registration failures */
+    .toast {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #333;
+      color: white;
+      padding: 15px 25px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      z-index: 3000;
+      transform: translateY(150%);
+      transition: transform 0.4s ease;
+    }
+
+    .toast.show {
+      transform: translateY(0);
+    }
+
+    .toast.success { background: #10B981; }
+    .toast.error { background: #EF4444; }
+
+    /* RESPONSIVE */
+    @media(max-width:768px){
+      body {
+        padding: 10px;
+      }
+      .container{
+        flex-direction:column;
+        height:auto;
+        border-radius: 15px;
+      }
+      .left-panel{
+        width:100%;
+        padding:25px;
+      }
+      .right-panel{
+        width:100%;
+        padding:25px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <!-- LEFT PANEL -->
+    <div class="left-panel">
+      <h1 onclick="window.location.href='/'">HelperHub</h1>
+      <p>
+        Connect with trusted local helpers like plumbers,
+        electricians, cleaners and many more.
+      </p>
+    </div>
+
+    <!-- RIGHT PANEL -->
+    <div class="right-panel">
+
+      <!-- LOGIN FORM -->
+      <div class="form-box" id="loginForm">
+        <h2>Login</h2>
+        <form id="login-form" onsubmit="handleLoginSubmit(event)">
+          <div class="input-group">
+            <input type="email" id="login-email" placeholder="Enter Email" required>
+          </div>
+
+          <div class="input-group">
+            <input type="password" id="login-password" placeholder="Enter Password" required>
+          </div>
+
+          <button type="submit" class="btn">Login</button>
+        </form>
+
+        <div class="switch-text">
+          Don't have an account?
+          <span onclick="showSignup()">Signup</span>
+        </div>
+      </div>
+
+      <!-- SIGNUP FORM -->
+      <div class="form-box" id="signupForm">
+        <h2>Create Account</h2>
+        <form id="signup-form" onsubmit="handleSignupSubmit(event)">
+          <div class="input-group">
+            <input type="text" id="signup-name" placeholder="Full Name" required>
+          </div>
+
+          <div class="input-group">
+            <input type="email" id="signup-email" placeholder="Email Address" required>
+          </div>
+
+          <div class="input-group">
+            <input type="password" id="signup-password" placeholder="Create Password" required>
+          </div>
+
+          <div class="input-group">
+            <input type="tel" id="signup-phone" placeholder="Phone Number" required>
+          </div>
+
+          <div class="input-group">
+            <label for="signup-role">Register As</label>
+            <select id="signup-role" onchange="toggleHelperFields(this.value)" required>
+              <option value="customer">Customer (Looking for help)</option>
+              <option value="helper">Helper (Offering services)</option>
+            </select>
+          </div>
+
+          <!-- Dynamic Helper Extra Fields -->
+          <div class="helper-fields" id="helper-extra-fields">
+            <h4 style="margin-bottom: 12px; color: #0077ff;">Helper Professional Details</h4>
+            
+            <div class="input-group">
+              <label for="helper-service">Service Type</label>
+              <select id="helper-service">
+                <option value="">Choose Service</option>
+                <option value="Plumber">Plumber</option>
+                <option value="Electrician">Electrician</option>
+                <option value="Cleaner">Cleaner</option>
+                <option value="Carpenter">Carpenter</option>
+                <option value="Painter">Painter</option>
+              </select>
+            </div>
+
+            <div class="input-group">
+              <label for="helper-experience">Experience (Years)</label>
+              <input type="number" id="helper-experience" min="0" placeholder="Years of experience">
+            </div>
+
+            <div class="input-group">
+              <label for="helper-rate">Hourly Rate (₹)</label>
+              <input type="number" id="helper-rate" min="0" placeholder="Rate per hour in INR">
+            </div>
+
+            <div class="input-group">
+              <label for="helper-location">City Location</label>
+              <input type="text" id="helper-location" placeholder="e.g. Delhi, Mumbai, Bangalore">
+            </div>
+
+            <div class="input-group">
+              <label for="helper-desc">Short Professional Description</label>
+              <textarea id="helper-desc" rows="3" placeholder="Briefly describe your skill set and service quality..."></textarea>
+            </div>
+            
+            <div class="input-group">
+              <label for="helper-avatar">Profile Avatar Image URL (Optional)</label>
+              <input type="url" id="helper-avatar" placeholder="https://example.com/avatar.jpg">
+            </div>
+          </div>
+
+          <button type="submit" class="btn">Signup</button>
+        </form>
+
+        <div class="switch-text">
+          Already have an account?
+          <span onclick="showLogin()">Login</span>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast-notification">
+    <span id="toast-message"></span>
+  </div>
+
+  <script src="js/auth.js"></script>
+  <script>
+    const loginForm = document.getElementById("loginForm");
+    const signupForm = document.getElementById("signupForm");
+    const helperFields = document.getElementById("helper-extra-fields");
+
+    function showSignup(){
+      loginForm.style.display = "none";
+      signupForm.style.display = "block";
+    }
+
+    function showLogin(){
+      signupForm.style.display = "none";
+      loginForm.style.display = "block";
+    }
+
+    function toggleHelperFields(role) {
+      if (role === 'helper') {
+        helperFields.style.display = "block";
+        document.getElementById("helper-service").setAttribute("required", "required");
+        document.getElementById("helper-experience").setAttribute("required", "required");
+        document.getElementById("helper-rate").setAttribute("required", "required");
+        document.getElementById("helper-location").setAttribute("required", "required");
+      } else {
+        helperFields.style.display = "none";
+        document.getElementById("helper-service").removeAttribute("required");
+        document.getElementById("helper-experience").removeAttribute("required");
+        document.getElementById("helper-rate").removeAttribute("required");
+        document.getElementById("helper-location").removeAttribute("required");
+      }
+    }
+  </script>
+
+</body>
+</html>

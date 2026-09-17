@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HelperHub - Find Trusted Local Helpers Near You</title>
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="logo" onclick="window.location.href='/'" style="cursor:pointer">HelperHub</div>
+
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="#services">Services</a>
+      <a href="#helpers">Helpers</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </div>
+
+    <div id="auth-nav-container">
+      <a href="login.html">
+        <button class="nav-btn">Join Now</button>
+      </a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Find Trusted <span>Local Helpers</span> Near You</h1>
+      <p>
+        Connect instantly with verified plumbers, electricians,
+        cleaners, carpenters, painters and many more skilled workers
+        in your local area.
+      </p>
+
+      <div class="search-box">
+        <input type="text" id="search-service" placeholder="Search service e.g Plumber">
+        <input type="text" id="search-location" placeholder="Enter Location">
+        <button id="search-btn">Search</button>
+      </div>
+    </div>
+
+    <div class="hero-image">
+      <img src="https://cdn-icons-png.flaticon.com/512/4140/4140048.png" alt="Local Helper Connect">
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="services" id="services">
+    <h2 class="section-title">Popular Services</h2>
+    <p class="section-subtitle">
+      Choose from multiple professional local services
+    </p>
+
+    <div class="service-grid">
+      <div class="service-card" onclick="filterByService('Plumber')">
+        <img src="https://cdn-icons-png.flaticon.com/512/1687/1687672.png" alt="Plumber">
+        <h3>Plumber</h3>
+        <p>Professional plumbing solutions for your home.</p>
+      </div>
+
+      <div class="service-card" onclick="filterByService('Electrician')">
+        <img src="https://cdn-icons-png.flaticon.com/512/3079/3079165.png" alt="Electrician">
+        <h3>Electrician</h3>
+        <p>Certified electricians for all electrical work.</p>
+      </div>
+
+      <div class="service-card" onclick="filterByService('Cleaner')">
+        <img src="https://cdn-icons-png.flaticon.com/512/1995/1995574.png" alt="Cleaner">
+        <h3>Cleaner</h3>
+        <p>Home and office deep cleaning services.</p>
+      </div>
+
+      <div class="service-card" onclick="filterByService('Carpenter')">
+        <img src="https://cdn-icons-png.flaticon.com/512/2942/2942923.png" alt="Carpenter">
+        <h3>Carpenter</h3>
+        <p>Furniture repair and woodwork experts.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Top Workers -->
+  <section class="workers" id="helpers">
+    <h2 class="section-title" id="workers-section-title">Top Rated Helpers</h2>
+    <div class="worker-grid" id="helpers-grid">
+      <!-- Loaded dynamically via js/main.js -->
+      <div class="loader-container">
+        <div class="loader"></div>
+        <p style="margin-top: 15px; color: #666;">Loading helpers...</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- App Section -->
+  <section class="app-section">
+    <div class="app-text">
+      <h2>Book Helpers Anytime, Anywhere</h2>
+      <p>
+        Our platform helps you instantly connect with trusted local
+        workers near your location. Easy booking, affordable pricing,
+        and verified professionals.
+      </p>
+      <div class="download-btns">
+        <button onclick="showToast('App download coming soon to Google Play and iOS App Store!', 'info')">Download App</button>
+        <button onclick="window.location.href='#helpers'">Get Started</button>
+      </div>
+    </div>
+
+    <div class="app-image">
+      <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="HelperHub App">
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h3>HelperHub</h3>
+        <p>
+          Connecting local people with trusted service providers.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h3>Quick Links</h3>
+        <a href="/">Home</a>
+        <a href="#services">Services</a>
+        <a href="#helpers">Helpers</a>
+        <a href="#">Contact</a>
+      </div>
+
+      <div class="footer-col">
+        <h3>Services</h3>
+        <a href="#helpers" onclick="filterByService('Plumber')">Plumbing</a>
+        <a href="#helpers" onclick="filterByService('Electrician')">Electrical</a>
+        <a href="#helpers" onclick="filterByService('Cleaner')">Cleaning</a>
+        <a href="#helpers" onclick="filterByService('Carpenter')">Carpentry</a>
+      </div>
+
+      <div class="footer-col">
+        <h3>Contact</h3>
+        <p>Email: support@helperhub.com</p>
+        <p>Phone: +91 9876543210</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      &copy; 2026 HelperHub. All Rights Reserved.
+    </div>
+  </footer>
+
+  <!-- Booking Modal -->
+  <div class="modal-backdrop" id="booking-modal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeBookingModal()">&times;</button>
+      <h3 class="modal-title">Book Helper</h3>
+      
+      <form id="booking-form" onsubmit="handleBookingSubmit(event)">
+        <input type="hidden" id="booking-helper-id">
+        
+        <div class="modal-form-group">
+          <label>Helper</label>
+          <input type="text" id="booking-helper-name" readonly style="background: #f0f0f0;">
+        </div>
+        
+        <div class="modal-form-group">
+          <label for="booking-date">Date</label>
+          <input type="date" id="booking-date" required>
+        </div>
+        
+        <div class="modal-form-group">
+          <label for="booking-time">Time Slot</label>
+          <select id="booking-time" required>
+            <option value="">Select a slot</option>
+            <option value="09:00 AM - 11:00 AM">09:00 AM - 11:00 AM</option>
+            <option value="11:00 AM - 01:00 PM">11:00 AM - 01:00 PM</option>
+            <option value="02:00 PM - 04:00 PM">02:00 PM - 04:00 PM</option>
+            <option value="04:00 PM - 06:00 PM">04:00 PM - 06:00 PM</option>
+          </select>
+        </div>
+        
+        <div class="modal-form-group">
+          <label for="booking-notes">Special Instructions / Notes</label>
+          <textarea id="booking-notes" rows="3" placeholder="Describe the task details (e.g. kitchen sink pipe is leaking)"></textarea>
+        </div>
+        
+        <button type="submit" class="modal-submit-btn">Confirm Booking</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast-notification">
+    <span id="toast-message"></span>
+  </div>
+
+  <!-- Client-side Scripts -->
+  <script src="js/auth.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

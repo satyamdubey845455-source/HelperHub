@@ -1,0 +1,38 @@
+# Python virtual environment
+.venv/
+venv/
+env/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# SQLite database (generated at runtime)
+database.db
+
+# Environment variables
+.env
+.env.local
+
+# VS Code
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+
+# Logs
+*.log
+
+# PDF build artifacts
+REPORT.pdf
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz

@@ -1,0 +1,228 @@
+/* Dashboard CSS for HelperHub */
+
+.dashboard-container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: 350px 1fr;
+  gap: 30px;
+}
+
+@media(max-width: 900px) {
+  .dashboard-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Profile Section Card */
+.profile-card {
+  background: white;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  height: fit-content;
+}
+
+.profile-header {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.profile-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+  border: 3px solid #0077ff;
+}
+
+.profile-header h3 {
+  font-size: 20px;
+  color: #333;
+}
+
+.profile-header span {
+  font-size: 14px;
+  color: #0077ff;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.profile-details {
+  border-top: 1px dashed #eee;
+  padding-top: 20px;
+}
+
+.profile-item {
+  margin-bottom: 15px;
+}
+
+.profile-item label {
+  font-size: 12px;
+  color: #888;
+  display: block;
+  font-weight: 500;
+}
+
+.profile-item p {
+  font-size: 15px;
+  color: #333;
+  font-weight: 500;
+}
+
+.edit-profile-btn {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #0077ff;
+  border-radius: 10px;
+  background: transparent;
+  color: #0077ff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-top: 15px;
+}
+
+.edit-profile-btn:hover {
+  background: #0077ff;
+  color: white;
+}
+
+/* Bookings Content Section */
+.bookings-section {
+  background: white;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  min-height: 500px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 15px;
+}
+
+.section-header h2 {
+  font-size: 22px;
+  color: #333;
+}
+
+/* Booking Cards */
+.booking-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.booking-card {
+  border: 1px solid #f0f2f5;
+  border-radius: 15px;
+  padding: 20px;
+  background: #fafbfe;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.3s;
+}
+
+.booking-card:hover {
+  box-shadow: 0 5px 15px rgba(0,0,0,0.04);
+  border-color: #d9e9ff;
+}
+
+.booking-main {
+  flex: 1;
+}
+
+.booking-details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.booking-detail-item label {
+  font-size: 11px;
+  color: #888;
+  display: block;
+}
+
+.booking-detail-item p {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+}
+
+.status-badge {
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.status-pending { background: #fef3c7; color: #d97706; }
+.status-accepted { background: #dbeafe; color: #2563eb; }
+.status-completed { background: #d1fae5; color: #059669; }
+.status-rejected { background: #fee2e2; color: #dc2626; }
+.status-cancelled { background: #f3f4f6; color: #4b5563; }
+
+.booking-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-left: 20px;
+}
+
+.action-btn {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+  white-space: nowrap;
+}
+
+.action-btn.accept { background: #10B981; color: white; }
+.action-btn.accept:hover { background: #059669; }
+
+.action-btn.reject { background: #EF4444; color: white; }
+.action-btn.reject:hover { background: #DC2626; }
+
+.action-btn.cancel { background: #6B7280; color: white; }
+.action-btn.cancel:hover { background: #4B5563; }
+
+.action-btn.complete { background: #0077ff; color: white; }
+.action-btn.complete:hover { background: #005ad1; }
+
+@media(max-width: 600px) {
+  .booking-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .booking-actions {
+    margin-left: 0;
+    margin-top: 15px;
+    width: 100%;
+    flex-direction: row;
+  }
+  .action-btn {
+    flex: 1;
+    text-align: center;
+  }
+}
+
+/* Edit Profile Modal */
+#edit-profile-modal .modal-content {
+  max-height: 90vh;
+  overflow-y: auto;
+}
