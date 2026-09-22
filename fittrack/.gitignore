@@ -1,12 +1,12 @@
 # ── Backend ─────────────────────────────────────
-**/target/
-**/.mvn/wrapper/maven-wrapper.jar
-**/*.class
+fittrack/backend/target/
+fittrack/backend/.mvn/wrapper/maven-wrapper.jar
+fittrack/backend/*.class
 
 # ── Frontend ─────────────────────────────────────
-**/node_modules/
-**/dist/
-**/.env.local
+fittrack/frontend/node_modules/
+fittrack/frontend/dist/
+fittrack/frontend/.env.local
 
 # ── Environment / Secrets ─────────────────────────
 *.env
@@ -25,8 +25,9 @@ application-prod.properties
 Thumbs.db
 desktop.ini
 
-# ── Logs & Archives ──────────────────────────────
+# ── Logs ─────────────────────────────────────────
 *.log
 logs/
-*.zip
-fittrack.zip
+
+# ── Maven local cache (don't commit) ─────────────
+# (your ~/.m2 is already outside the repo)
