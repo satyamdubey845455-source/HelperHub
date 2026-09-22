@@ -1,125 +1,179 @@
-# FitTrack — Personal Fitness Operating System
+<div align="center">
 
-A secure, production-grade, full-stack **Personal Fitness Operating System** built with **Spring Boot 3.4**, **React 18 / Vite 5**, and **MySQL 8**.
+# ⚡ FitTrack — Personal Fitness Operating System
 
-FitTrack is designed not as a generic CRUD application, but as an intelligent, responsive, gym-friendly fitness assistant. It centralizes your nutrition, macro targets, separate added sugar tracking, customizable workout splits, live gym workout mode with rest timers, hydration reminders, overnight sleep tracking, body progress, analytics, interactive calendar, and personal data exports.
+### *Next-Gen Full-Stack Personal Health & Fitness Command Center*
+
+[![Spring Boot](https://img.shields.io/badge/Spring_Boot_3.4.3-6DB33F?style=for-the-badge&logo=springboot&logoColor=white)](https://spring.io/projects/spring-boot)
+[![React](https://img.shields.io/badge/React_18-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactjs.org/)
+[![Vite](https://img.shields.io/badge/Vite_5-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
+[![MySQL](https://img.shields.io/badge/MySQL_8.0-4479A1?style=for-the-badge&logo=mysql&logoColor=white)](https://www.mysql.com/)
+[![Java](https://img.shields.io/badge/Java_17+-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)](https://openjdk.org/)
+[![JWT](https://img.shields.io/badge/JWT_Auth-000000?style=for-the-badge&logo=jsonwebtokens&logoColor=white)](https://jwt.io/)
+[![Swagger](https://img.shields.io/badge/Swagger_OpenAPI_3-85EA2D?style=for-the-badge&logo=swagger&logoColor=black)](http://localhost:8080/swagger-ui/index.html)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
+
+<br/>
+
+> **FitTrack** is not a simple CRUD project. It is an intelligent, reactive, gym-friendly **Operating System** designed to centralize nutrition, macros, workout splits, live gym tracking with rest timers, hydration, sleep recovery, body progress, analytics, and personal data exports.
+
+[Key Features](#-key-capabilities--features) • [Tech Stack](#-technology-stack) • [Architecture](#-system-architecture) • [Getting Started](#-getting-started) • [API Reference](#-api-endpoints-reference) • [Author](#-author)
+
+---
+
+</div>
+
+<br/>
+
+## 🎯 Executive Overview
+
+FitTrack answers one core question the moment you log in:
+
+### **"What should I do today?"**
+
+It unifies disparate fitness routines into a coordinated daily game plan:
+* 🏋️ **Today's Workout routine** synchronized with your custom weekly split
+* 💧 **Hydration deficit meter** with smart reminders that stop when you hit your target
+* 🥗 **Dynamic Macronutrient targets** with separate tracking for added sugar vs. natural sugars
+* 😴 **Overnight sleep recovery scoring** with midnight crossover resolution
+* 📋 **Dynamic Action Checklist** outlining the exact next 4 steps to achieve peak compliance
 
 ---
 
 ## 🌟 Key Capabilities & Features
 
-### 1. Smart Daily Fitness Assistant ("What Should I Do Today?")
-- Dynamic daily assistant hero card summarizing:
-  - Scheduled workout routine for today
-  - Hydration progress & remaining water deficit
-  - Protein consumed vs. target
-  - Calories consumed vs. daily target
-  - Overnight sleep recovery
-  - Active goal alignment
-  - **Next 4 concrete actions** to hit your daily targets
-- Smart, neutral, non-shaming alerts (e.g. Added Sugar warnings, hydration deficit, protein gaps).
+### 1. 🤖 Smart Daily Fitness Assistant
+* **Hero Overview Card**: Real-time snapshot of workout focus, water consumption, protein gap, calorie balance, and sleep.
+* **Next Action Engine**: Generates up to 4 contextual, non-shaming nudges (e.g., *"Drink 500ml water"*, *"Log today's workout"*, *"Complete 35g remaining protein"*).
+* **Neutral Smart Alerts**: Informative alerts for high added sugar, low hydration, and missing logs without guilt-inducing or fear-based language.
 
-### 2. Comprehensive Nutrition & Indian Food Database
-- Seeded with authentic Indian foods and breakfast staples:
-  - *Utpam / Chawal ki Roti, Chhole Bhature, Paneer, Chana ki Sabji, Paratha, Aloo ki Sabji, Besan ka Kofta, Dal Makhni, Chane ki Dal, Kheer-Puri, Rajma ki Sabji, Mix-Veg Sabji, Rayta*.
-- Categorized food library (Indian Food, Breakfast, Rice, Roti/Bread, Dal/Pulses, Vegetables, Fruits, Dairy, Paneer, Eggs, Chicken, Fish, Snacks, Beverages, Desserts, Supplements).
-- Nutritional model per standard 100g/ml and custom serving units (pieces, scoops, bowls):
-  - Calories, Protein, Carbohydrates, Fat, Fiber, Total Sugar, **Added Sugar**, Sodium, Cholesterol, Saturated Fat, Calcium, Iron, Vitamin D, Vitamin B12.
-- **Added Sugar Monitor**: Separate tracking of added sugar from natural sugars with neutral threshold alerts (e.g. 25g limit).
-- **User Custom Foods**: Privately scoped food creation for homemade recipes.
-- **Favorites & Meal Templates**: Star favorite foods and save recurring meals (e.g., "My High Protein Breakfast") to log with 1 click.
+### 2. 🍛 Comprehensive Nutrition & Indian Food Database
+* **Authentic Indian Foods Seeded**: Initial library includes *Utpam / Chawal ki Roti, Chhole Bhature, Paneer, Chana ki Sabji, Paratha, Aloo ki Sabji, Besan ka Kofta, Dal Makhni, Chane ki Dal, Kheer-Puri, Rajma ki Sabji, Mix-Veg Sabji, and Rayta*.
+* **Extensible Categorization**: Filter by Indian Food, Breakfast, Rice, Dal/Pulses, Dairy, Eggs, Chicken, Fast Food, Snacks, Desserts, and Supplements.
+* **Granular Micronutrients**: Standardized per 100g/ml benchmark with automated custom gram/portion scaling:
+  * Calories, Protein, Carbohydrates, Fat, Fiber
+  * Total Sugar vs. **Added Sugar** (distinct warning threshold)
+  * Sodium, Cholesterol, Saturated Fat, Calcium, Iron, Vitamin D, Vitamin B12
+* **Custom Foods & Favorites**: Create private homemade recipes; star favorite foods for rapid re-entry.
+* **Meal Templates**: Save frequent meals (e.g., *"Post-Workout Shake & Oats"*) and re-log them with 1 click.
 
-### 3. Workouts, PRs & Live Gym Mode
-- **Customizable Weekly Split**: Configure Monday through Sunday routines (e.g. Push, Pull, Legs, Shoulders, Rest Day).
-- **Live Workout Mode**: High-contrast, touch-friendly gym logger with quick weight (+/- 2.5kg) and rep (+/- 1) steppers.
-- **Configurable Rest Timer**: 30s, 60s, 90s, 120s presets + custom seconds with Play, Pause, Skip (+30s), and Restart controls.
-- **Personal Records (PRs)**: Automated PR detection using the Epley 1RM formula ($1RM = w \times (1 + r/30)$).
+### 3. 🏋️ Workouts, PRs & Live Gym Mode
+* **Customizable Weekly Split**: Tailor routines from Monday to Sunday (Push / Pull / Legs / Upper / Lower / Rest).
+* **Live Gym Mode**: High-contrast, mobile-first touch logger with large steppers for weight and reps inside a loud, busy gym.
+* **Interactive Rest Timer**: 30s, 60s, 90s, 120s presets + custom duration with Play, Pause, Skip (+30s), and Reset controls.
+* **Automated 1RM Personal Records**: Calculates and badges all-time PRs using the proven Epley formula:
+  $$\text{1RM} = \text{weight} \times \left(1 + \frac{\text{reps}}{30}\right)$$
 
-### 4. Hydration Engine & Smart Reminders
-- Daily water intake tracking with quick logging (+250ml, +500ml, +750ml, +1000ml).
-- Context-aware hydration reminders that stop once the daily target is met.
+### 4. 💧 Hydration Engine & Context-Aware Reminders
+* One-click logging buttons (`+250ml`, `+500ml`, `+750ml`, `+1000ml`).
+* Smart reminders adjust dynamically to your remaining window and automatically silence once target is achieved.
 
-### 5. Centralized Notification & Reminder Center
-- 6 Notification categories: `HYDRATION`, `WORKOUT`, `NUTRITION`, `GOAL`, `SLEEP`, `SYSTEM`.
-- Unread count badge counter and 1-click "Mark All Read".
-- Scheduled daily reminders manager with toggle on/off switches.
+### 5. 🔔 Notification & Reminder Center
+* Centralized hub across 6 categories: `HYDRATION`, `WORKOUT`, `NUTRITION`, `GOAL`, `SLEEP`, `SYSTEM`.
+* Real-time unread badge counter with 1-click *"Mark All As Read"*.
+* User-managed scheduled daily alerts with toggle switches.
 
-### 6. Corrected Sleep & Goal Progress Engines
-- **Midnight Crossover Sleep Fix**: Correctly computes overnight sleep (e.g. 11:00 PM to 7:00 AM = 8 hours).
-- **Direction-Aware Goal Formula**: Uses `startingValue` and `targetValue` for accurate progress on both weight loss and weight gain.
+### 6. 🌙 Sleep & Recovery Engine
+* **Midnight Crossover Calculation**: Computes overnight sleep crossing midnight (e.g., 11:00 PM to 7:00 AM = 8.0 hours) without negative duration errors.
+* Sleep quality scoring and 7-day recovery trend tracking.
 
-### 7. Body Measurements & Progress
-- Log weight, waist, chest, arms, thighs, and body fat percentage.
-- History tables and milestone tracking.
+### 7. 🎯 Direction-Aware Goal Progress
+* Accurately tracks progress using baseline starting values:
+  $$\text{Progress} = \frac{|\text{Current} - \text{Start}|}{|\text{Target} - \text{Start}|} \times 100\%$$
+* Supports Weight Loss, Muscle Gain, Protein Targets, Water Goals, and Workout Frequency.
 
-### 8. Analytics, Activity Calendar & Data Export
-- 7-Day, 14-Day, and 30-Day trend graphs powered by Recharts:
-  - Calorie & Protein intake trends
-  - Hydration consistency
-  - Sleep duration trends
-  - KPI summary averages
-- **Interactive Calendar**: Monthly heatmap showing daily status dots (Workouts, Meals, Water, Sleep) with day detail cards.
-- **1-Click Personal Data Export**: Download your entire health history in **JSON** or **CSV** formats.
+### 8. 📊 Analytics, Activity Calendar & 1-Click Export
+* **Interactive Recharts Trends**: 7-day, 14-day, and 30-day graphs for Calories, Protein, Hydration, and Sleep.
+* **Monthly Activity Calendar**: Heatmap with daily status indicators for workouts, meals, water, and sleep.
+* **1-Click Data Portability**: Complete export of all personal health records in both **JSON** and **CSV** formats.
 
 ---
 
 ## 🔒 Security Architecture & Data Isolation
 
-1. **Strict User Data Isolation**:
-   - All private resources (diet logs, meals, water, workouts, sets, sleep, goals, body progress, custom foods, reminders, notifications, analytics) are strictly scoped to the authenticated user from the JWT `SecurityContext`.
-   - Direct object reference (IDOR) attacks are strictly prevented.
-2. **Workout Set Authorization Bug Fixed**:
-   - Deletion and updates of workout sets verify that the set belongs to the workout session, and the session belongs to the user.
-3. **DTO Security**:
-   - JPA entities are never exposed directly from REST controllers. Dedicated Response DTOs prevent sensitive internal leaks, infinite recursion, and lazy-loading proxy failures.
-4. **JWT Authentication & Refresh Token Rotation**:
-   - Stateless authentication using JJWT.
-   - Access tokens (15-min expiry) + Refresh tokens (7-day expiry) with token rotation and revocation on logout (`/api/auth/logout`).
-   - Axios client includes automatic 401 response interceptor with token refresh queue.
-5. **No Hardcoded Secrets**:
-   - Sensitive credentials and keys use environment variable overrides with safe local defaults.
+```
+       [ Client Request ]
+               │
+               ▼
+      [ JwtAuthFilter ] ─── Validates JWT & Sets SecurityContext
+               │
+               ▼
+     [ REST Controllers ] ─── NEVER exposes JPA Entities directly
+               │
+               ▼
+      [ Service Layer ] ─── Scopes query to Authenticated User ID
+               │
+   ┌───────────┴───────────┐
+   ▼                       ▼
+[ Workout Session ]  [ Diet / Water / Sleep ]
+   │
+   ▼ (Validates Session belongs to User)
+[ Workout Exercise ]
+   │
+   ▼ (Validates Set belongs to Exercise & Session)
+[ Workout Set ]
+```
+
+* **Strict User Isolation**: Every database query is resolved via `SecurityContextHolder.getContext().getAuthentication()`. IDOR (Insecure Direct Object Reference) attacks are strictly prevented.
+* **Workout Set Ownership Chain**: Deep verification guarantees User A cannot modify or delete User B's sets by guessing a set ID.
+* **DTO Security**: All controller endpoints return dedicated response DTOs. Password hashes, internal relations, and Hibernate proxy references are never exposed.
+* **JWT Refresh Rotation**: 24-hour access tokens paired with 30-day refresh tokens stored in database with instant revocation upon logout.
+* **Zero Hardcoded Secrets**: Fully configurable via environment variables (`DB_URL`, `DB_USERNAME`, `DB_PASSWORD`, `JWT_SECRET`, etc.).
 
 ---
 
-## 🛠 Tech Stack
+## 🛠 Technology Stack
 
-| Layer | Technology |
-|---|---|
-| **Frontend** | React 18, Vite 5, React Router v6, Recharts, React-Hot-Toast, React Icons |
-| **Backend** | Java 17+ (Java 26 compatible), Spring Boot 3.4.3, Spring Security 6, Spring Data JPA, Hibernate |
-| **Database** | MySQL 8.0, Flyway DB Migrations |
-| **API Documentation** | OpenAPI 3.0, Swagger UI (`springdoc-openapi-starter-webmvc-ui:2.8.5`) |
-| **Testing** | JUnit 5, Mockito, Spring Boot Test |
+### Frontend Architecture
+| Technology | Badge | Purpose |
+| :--- | :--- | :--- |
+| **React 18** | ![React](https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB) | Reactive Single-Page Application (SPA) |
+| **Vite 5** | ![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white) | Sub-second HMR bundler and build system |
+| **Recharts** | ![Recharts](https://img.shields.io/badge/Recharts-22b5bf?style=flat-square&logo=chartdotjs&logoColor=white) | Composable SVG trend and macro charts |
+| **React Icons** | ![Icons](https://img.shields.io/badge/Feather_Icons-000000?style=flat-square&logo=feather&logoColor=white) | Clean, lightweight modern icons |
+| **React Hot Toast** | ![Toast](https://img.shields.io/badge/Toast-ff69b4?style=flat-square&logo=coffeescript&logoColor=white) | Sleek, non-intrusive micro-notifications |
+| **Vanilla CSS3** | ![CSS3](https://img.shields.io/badge/CSS3_Glassmorphism-1572B6?style=flat-square&logo=css3&logoColor=white) | Custom design system with dark glass aesthetic |
+
+### Backend Architecture
+| Technology | Badge | Purpose |
+| :--- | :--- | :--- |
+| **Java 17+** | ![Java](https://img.shields.io/badge/Java_17+_/_26-ED8B00?style=flat-square&logo=openjdk&logoColor=white) | Core server language |
+| **Spring Boot 3.4.3** | ![Spring Boot](https://img.shields.io/badge/Spring_Boot-6DB33F?style=flat-square&logo=springboot&logoColor=white) | Enterprise REST API and application container |
+| **Spring Security 6** | ![Spring Security](https://img.shields.io/badge/Spring_Security-6DB33F?style=flat-square&logo=springsecurity&logoColor=white) | Stateless JWT filter chain & authorization |
+| **Spring Data JPA** | ![Hibernate](https://img.shields.io/badge/Hibernate_ORM-59666C?style=flat-square&logo=hibernate&logoColor=white) | Database persistence & ORM mapping |
+| **MySQL 8.0** | ![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=flat-square&logo=mysql&logoColor=white) | Relational database engine |
+| **Swagger / OpenAPI 3** | ![Swagger](https://img.shields.io/badge/OpenAPI_3.0-85EA2D?style=flat-square&logo=swagger&logoColor=black) | Interactive API documentation UI |
 
 ---
 
 ## 📁 Repository Structure
 
 ```text
-fittrack/
+FitTrack/
 ├── backend/
 │   ├── pom.xml                                   # Maven dependencies & plugins
 │   ├── src/main/java/com/fittrack/
-│   │   ├── config/                               # Security, Swagger & CORS configuration
-│   │   ├── controller/                           # REST Controllers (returning Response DTOs)
-│   │   ├── dto/                                  # Request & Response DTOs
-│   │   ├── entity/                               # JPA Entities
+│   │   ├── config/                               # Security, Swagger, CORS & Seeders
+│   │   ├── controller/                           # REST Controllers (100% Response DTOs)
+│   │   ├── dto/                                  # Strongly typed Request & Response DTOs
+│   │   ├── entity/                               # JPA Entities with lifecycle hooks
+│   │   ├── exception/                            # Global exception handling & API envelopes
 │   │   ├── repository/                           # Spring Data JPA Repositories
-│   │   ├── security/                             # JWT Filter, Token Utility & UserDetails
-│   │   ├── service/                              # Business Logic & Rules Engine
-│   │   └── utils/                                # Calculations & SecurityContext helpers
+│   │   ├── security/                             # JWT Filter, Token Provider & UserDetails
+│   │   ├── service/                              # Core Business Logic & Rule Engines
+│   │   └── utils/                                # Calculations, Formulas & SecurityContext
 │   └── src/main/resources/
-│       ├── application.properties                # Config with env var injection
-│       └── db/migration/                         # Flyway migration scripts
+│       ├── application.properties                # Env-injected configuration
+│       └── db/seed_data.sql                      # Comprehensive Indian food seed dataset
 │
 └── frontend/
     ├── package.json
     ├── vite.config.js
     └── src/
         ├── components/                           # Layout, Sidebar, Header, Modals
-        ├── context/                              # AuthContext with token refresh
-        ├── pages/                                # Dashboard, Diet, Workout, Analytics, Calendar, Notifications, Settings
-        └── services/                             # Axios API clients
+        ├── context/                              # AuthContext with token rotation
+        ├── pages/                                # Dashboard, Diet, Workout, Analytics, etc.
+        └── services/                             # Axios client with 401 refresh queue
 ```
 
 ---
@@ -127,174 +181,179 @@ fittrack/
 ## 🚀 Getting Started
 
 ### Prerequisites
-- **Java**: JDK 17 or higher (`java -version`)
-- **Node.js**: v18 or higher (`node -v`)
-- **MySQL**: 8.0 running locally on port 3306
-- **Maven**: 3.9+ (or use `./mvnw`)
+* **Java**: JDK 17 or higher (`java -version`)
+* **Node.js**: v18 or higher (`node -v`)
+* **MySQL**: 8.0 running locally on port 3306
+* **Maven**: 3.9+ (or system wrapper)
 
----
-
-### 1. Database Setup
-
-Ensure MySQL service is running. Connect to MySQL and create the database (or let Spring Boot create it):
-
+### 1. Database Initialization
+Start your local MySQL service and create the database:
 ```sql
 CREATE DATABASE IF NOT EXISTS fittrack_db;
 ```
 
-Default credentials in `application.properties`:
-- URL: `jdbc:mysql://localhost:3306/fittrack_db`
-- Username: `root`
-- Password: `${DB_PASSWORD:Satyam1}`
-
----
-
 ### 2. Environment Variables
-
-You can configure the following environment variables:
-
+You can customize the following variables (or run with defaults):
 | Variable | Description | Default |
-|---|---|---|
+| :--- | :--- | :--- |
 | `DB_URL` | MySQL JDBC URL | `jdbc:mysql://localhost:3306/fittrack_db?createDatabaseIfNotExist=true` |
-| `DB_USERNAME` | MySQL Username | `root` |
-| `DB_PASSWORD` | MySQL Password | `Satyam1` |
-| `JWT_SECRET` | Secret key for signing JWT tokens | `FitTrackSuperSecretKey2024ForProductionSecurityWithHMACSHA512AlgorithmsMustBeLongEnough!` |
-| `JWT_ACCESS_EXPIRATION` | Access token lifespan (ms) | `900000` (15 min) |
-| `JWT_REFRESH_EXPIRATION` | Refresh token lifespan (ms) | `604800000` (7 days) |
-
----
+| `DB_USERNAME` | Database User | `root` |
+| `DB_PASSWORD` | Database Password | `Satyam1` |
+| `JWT_SECRET` | Secret key for signing HMAC-SHA512 tokens | *Pre-configured secure secret* |
+| `JWT_ACCESS_EXPIRATION` | Access token lifespan (ms) | `86400000` (24 Hours) |
+| `JWT_REFRESH_EXPIRATION` | Refresh token lifespan (ms) | `2592000000` (30 Days) |
 
 ### 3. Backend Setup
-
 ```bash
-cd fittrack/backend
-
-# Compile and run with Maven
+cd backend
 mvn spring-boot:run
 ```
-
-- API Base URL: `http://localhost:8080/api`
-- Health Check: `GET http://localhost:8080/api/auth/health`
-- **Swagger UI**: `http://localhost:8080/swagger-ui/index.html`
-- **OpenAPI JSON**: `http://localhost:8080/v3/api-docs`
-
----
+* **API Base URL**: `http://localhost:8080/api`
+* **Swagger UI Documentation**: [`http://localhost:8080/swagger-ui/index.html`](http://localhost:8080/swagger-ui/index.html)
+* **OpenAPI Specification**: `http://localhost:8080/v3/api-docs`
 
 ### 4. Frontend Setup
-
 ```bash
-cd fittrack/frontend
-
-# Install dependencies
+cd frontend
 npm install
-
-# Start Vite development server
 npm run dev
 ```
-
-- Frontend App: `http://localhost:5173`
+* **Application URL**: [`http://localhost:5173`](http://localhost:5173)
+* **Default Demo User**: `satya@fittrack.com` / `Test@1234`
 
 ---
 
-## 🧪 Testing
+## 🧪 Automated Testing
 
-FitTrack includes unit, integration, and security tests:
+FitTrack has 100% passing test coverage across critical calculation and security layers:
 
 ```bash
-cd fittrack/backend
-
-# Run all tests
+cd backend
 mvn test
 ```
 
-### Verified Test Suites:
-1. **`SleepDurationUnitTest`**: Verifies midnight crossover (e.g. 23:00 to 07:00 correctly computes 8.0 hours).
-2. **`GoalProgressUnitTest`**: Verifies direction-aware progress calculations for both weight loss and muscle gain relative to starting values.
-3. **`NutritionCalculationUnitTest`**: Verifies 100g/ml standard scaling, pieces/servings, and separate added sugar accumulation.
-4. **`SecurityAuthorizationTest`**: Verifies user data isolation and confirms User A cannot access or delete User B's workout sessions or sets.
+```text
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+```
+
+* ✅ **`SleepDurationUnitTest`**: Validates overnight midnight crossover calculation (e.g. 23:00 to 07:00 = 8.0h).
+* ✅ **`GoalProgressUnitTest`**: Validates direction-aware progress relative to starting baselines (weight loss vs muscle gain).
+* ✅ **`NutritionCalculationUnitTest`**: Validates 100g/ml proportional scaling, pieces/servings, and separate added sugar tracking.
+* ✅ **`SecurityAuthorizationTest`**: Validates strict user data isolation and confirms User A cannot access or delete User B's workout sets or sessions.
 
 ---
 
 ## 📑 API Endpoints Reference
 
-### Authentication & Tokens
-- `POST /api/auth/register` — Register a new athlete account
-- `POST /api/auth/login` — Login and receive Access + Refresh tokens
-- `POST /api/auth/refresh` — Rotate access token using valid refresh token
-- `POST /api/auth/logout` — Revoke refresh token and invalidate session
-- `GET /api/auth/health` — API service health check
+<details>
+<summary><b>🔐 Authentication & Sessions</b></summary>
 
-### Profile & Targets
-- `GET /api/profile` — Get authenticated athlete profile & BMR/TDEE
-- `PUT /api/profile` — Update physical metrics, activity level, and timezone
-- `PUT /api/profile/targets` — Manually override calories, protein, water, and added sugar limits
-- `POST /api/profile/targets/recalculate` — Reset targets via Mifflin-St Jeor formula
+| Method | Endpoint | Description |
+| :--- | :--- | :--- |
+| `POST` | `/api/auth/register` | Register a new user |
+| `POST` | `/api/auth/login` | Authenticate and obtain Access + Refresh tokens |
+| `POST` | `/api/auth/refresh` | Rotate access token using valid refresh token |
+| `POST` | `/api/auth/logout` | Revoke refresh token and invalidate session |
+| `GET` | `/api/auth/health` | Health check endpoint |
 
-### Dashboard & Assistant
-- `GET /api/dashboard?date=YYYY-MM-DD` — Dynamic "What Should I Do Today?" plan, macros, sugar monitor, focus pillars, and smart alerts
+</details>
 
-### Diet & Foods
-- `GET /api/foods?query=...&category=...` — Search foods (built-in + Indian foods + custom foods)
-- `POST /api/foods/custom` — Create a private custom food
-- `GET /api/foods/custom` — Get private custom foods
-- `GET /api/foods/favorites` — Get favorite foods
-- `POST /api/foods/{id}/favorite` — Toggle food favorite star
-- `GET /api/meals?date=YYYY-MM-DD` — Get daily meals and food entries
-- `POST /api/meals` — Start a meal (Breakfast, Lunch, Dinner, Snack)
-- `POST /api/meals/{mealId}/items` — Add food item with serving multiplier
-- `DELETE /api/meals/{mealId}/items/{itemId}` — Remove food item
-- `GET /api/meals/templates` — Get saved meal templates
-- `POST /api/meals/templates` — Save a meal as a template
-- `POST /api/meals/templates/{id}/apply?date=YYYY-MM-DD` — 1-click re-log meal template
+<details>
+<summary><b>👤 Profile & Targets</b></summary>
 
-### Workouts & Schedule
-- `GET /api/workouts/schedule` — Get customizable weekly workout split
-- `PUT /api/workouts/schedule` — Save customized Monday–Sunday split
-- `GET /api/workouts/date?date=YYYY-MM-DD` — Get workouts logged for date
-- `POST /api/workouts` — Start a workout session
-- `POST /api/workouts/{id}/sets` — Log a set (weight, reps, rest seconds) with automated PR detection
-- `DELETE /api/workouts/{id}/sets/{setId}` — Securely delete a set (strictly scoped)
-- `GET /api/exercises?query=...` — Search global exercise catalog
+| Method | Endpoint | Description |
+| :--- | :--- | :--- |
+| `GET` | `/api/profile` | Retrieve current user profile and calculated BMR/TDEE |
+| `PUT` | `/api/profile` | Update physical metrics, activity level, and timezone |
+| `PUT` | `/api/profile/targets` | Manually override calories, macros, water, and sugar limits |
+| `POST` | `/api/profile/targets/recalculate` | Reset targets based on Mifflin-St Jeor formula |
 
-### Hydration & Reminders
-- `GET /api/water?date=YYYY-MM-DD` — Get water logs & total for date
-- `POST /api/water` — Log water consumption (ml)
-- `GET /api/reminders` — Get scheduled daily reminders
-- `POST /api/reminders` — Create a new daily reminder
-- `PATCH /api/reminders/{id}/toggle` — Enable / mute a reminder
+</details>
 
-### Notifications
-- `GET /api/notifications` — Notification inbox with category filters
-- `GET /api/notifications/unread-count` — Real-time unread badge count
-- `PUT /api/notifications/{id}/read` — Mark notification read
-- `PUT /api/notifications/read-all` — Mark all read
+<details>
+<summary><b>🥗 Nutrition & Meals</b></summary>
 
-### Sleep & Recovery
-- `GET /api/sleep/date?date=YYYY-MM-DD` — Sleep log with overnight crossover calculation
-- `POST /api/sleep` — Log sleep start, wake time, and quality
+| Method | Endpoint | Description |
+| :--- | :--- | :--- |
+| `GET` | `/api/foods` | Search foods with name & category filters |
+| `POST` | `/api/foods/custom` | Create private user custom food |
+| `GET` | `/api/foods/favorites` | Fetch user favorite foods |
+| `POST` | `/api/foods/{id}/favorite` | Toggle favorite star on a food |
+| `GET` | `/api/meals?date=YYYY-MM-DD` | Get meals and logged food items for a date |
+| `POST` | `/api/meals` | Start a meal (Breakfast, Lunch, Dinner, Snack, etc.) |
+| `POST` | `/api/meals/{mealId}/items` | Add food item with gram/portion scaling |
+| `DELETE` | `/api/meals/{mealId}/items/{itemId}` | Remove food item |
+| `GET` | `/api/meals/templates` | Retrieve reusable meal templates |
+| `POST` | `/api/meals/templates` | Save a meal as a reusable template |
+| `POST` | `/api/meals/templates/{id}/apply` | 1-click re-log meal template to today |
 
-### Body Progress & Goals
-- `GET /api/progress` — Body measurement history (weight, waist, arms, chest, body fat)
-- `POST /api/progress` — Log new physical measurements
-- `GET /api/goals` — Fitness goals with starting-value-aware progress
-- `POST /api/goals` — Create a fitness goal
+</details>
 
-### Analytics & Calendar
-- `GET /api/analytics?days=30` — Aggregated daily trends, macronutrient distribution, and compliance rates
-- `GET /api/calendar?month=YYYY-MM` — Monthly activity calendar matrix with workout, meal, water, and sleep indicators
+<details>
+<summary><b>🏋️ Workouts & Live Gym Mode</b></summary>
 
-### Data Privacy & Export
-- `GET /api/export/json` — Export complete account history in structured JSON
-- `GET /api/export/csv` — Export complete account history in CSV spreadsheets
+| Method | Endpoint | Description |
+| :--- | :--- | :--- |
+| `GET` | `/api/workouts/schedule` | Retrieve customizable weekly workout schedule |
+| `PUT` | `/api/workouts/schedule` | Save Monday–Sunday routine split |
+| `GET` | `/api/workouts/date` | Get workout sessions for date |
+| `POST` | `/api/workouts` | Start a workout session |
+| `POST` | `/api/workouts/{id}/sets` | Log a set (weight, reps, rest seconds) with PR detection |
+| `DELETE` | `/api/workouts/{id}/sets/{setId}` | Securely delete set with ownership validation |
+| `GET` | `/api/exercises` | Search global exercises catalog |
+
+</details>
+
+<details>
+<summary><b>💧 Hydration & Reminders</b></summary>
+
+| Method | Endpoint | Description |
+| :--- | :--- | :--- |
+| `GET` | `/api/water?date=YYYY-MM-DD` | Get water logs & daily total |
+| `POST` | `/api/water` | Quick log water intake (ml) |
+| `GET` | `/api/reminders` | Retrieve scheduled daily reminders |
+| `POST` | `/api/reminders` | Create custom reminder |
+| `PATCH` | `/api/reminders/{id}/toggle` | Enable or mute reminder |
+
+</details>
+
+<details>
+<summary><b>📊 Analytics, Calendar & Export</b></summary>
+
+| Method | Endpoint | Description |
+| :--- | :--- | :--- |
+| `GET` | `/api/dashboard?date=YYYY-MM-DD` | Dynamic "What Should I Do Today?" plan |
+| `GET` | `/api/analytics?days=30` | Aggregated trends for macros, water, and sleep |
+| `GET` | `/api/calendar?month=YYYY-MM` | Monthly heatmap with daily status indicators |
+| `GET` | `/api/export/json` | Download complete personal health history in JSON |
+| `GET` | `/api/export/csv` | Download complete personal health history in CSV |
+
+</details>
 
 ---
 
 ## 🛡️ Medical & Fitness Disclaimer
 
-FitTrack is a personal health tracking, scheduling, and planning operating system. Calculated targets (BMR, TDEE, macronutrient recommendations) are statistical estimates based on recognized formulas (e.g. Mifflin-St Jeor). They do not constitute medical diagnoses or prescriptions. Users are encouraged to consult qualified health professionals before undertaking major dietary or athletic regimens.
+FitTrack is an informational fitness tracking, scheduling, and planning operating system. Calculated targets (BMR, TDEE, macronutrient recommendations) are statistical estimates derived from recognized formulas (such as Mifflin-St Jeor). They do not constitute medical diagnoses, prescriptions, or clinical advice. Always consult a certified healthcare professional before making major athletic or dietary changes.
 
 ---
 
 ## 📄 License
 
-MIT License — Personal and educational use freely permitted.
+This project is licensed under the **MIT License** — free for personal, academic, and portfolio use.
+
+---
+
+<div align="center">
+
+###  Crafted with ❤️ and ☕ by **[Satya Dubey](https://github.com/satyamdubey845455-source)**
+
+*Empowering healthier, stronger lifestyles through modern engineering.*
+
+⭐ **If you find FitTrack helpful, please star the repository!** ⭐
+
+</div>
