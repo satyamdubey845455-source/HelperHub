@@ -17,6 +17,19 @@
 
 > **FitTrack** is not a simple CRUD project. It is an intelligent, reactive, gym-friendly **Operating System** designed to centralize nutrition, macros, workout splits, live gym tracking with rest timers, hydration, sleep recovery, body progress, analytics, and personal data exports.
 
+<br/>
+
+### 🌐 Live Cloud Deployments & Links
+
+| Service | Platform | Link / Status |
+| :--- | :--- | :--- |
+| **Frontend Application** | **Vercel** | [![Vercel](https://img.shields.io/badge/Vercel-Live_App-black?style=for-the-badge&logo=vercel)](https://fittrack-os.vercel.app) • [`fittrack-os.vercel.app`](https://fittrack-os.vercel.app) |
+| **Frontend Mirror** | **Netlify** | [![Netlify](https://img.shields.io/badge/Netlify-Mirror-00C7B7?style=for-the-badge&logo=netlify&logoColor=white)](https://fittrack-os.netlify.app) • [`fittrack-os.netlify.app`](https://fittrack-os.netlify.app) |
+| **REST API Server** | **Render** | [![Render](https://img.shields.io/badge/Render-API_Service-46E3B7?style=for-the-badge&logo=render&logoColor=black)](https://fittrack-backend.onrender.com/api/auth/health) • [`fittrack-backend.onrender.com`](https://fittrack-backend.onrender.com) |
+| **Swagger UI Docs** | **OpenAPI 3.0** | [![Swagger](https://img.shields.io/badge/Swagger-API_Docs-85EA2D?style=for-the-badge&logo=swagger&logoColor=black)](https://fittrack-backend.onrender.com/swagger-ui/index.html) • [`/swagger-ui/index.html`](https://fittrack-backend.onrender.com/swagger-ui/index.html) |
+
+<br/>
+
 [Key Features](#-key-capabilities--features) • [Tech Stack](#-technology-stack) • [Architecture](#-system-architecture) • [Getting Started](#-getting-started) • [API Reference](#-api-endpoints-reference) • [Author](#-author)
 
 ---
@@ -350,7 +363,7 @@ This project is licensed under the **MIT License** — free for personal, academ
 
 <div align="center">
 
-###  Crafted with ❤️ and ☕ by **[Satya Dubey](https://github.com/satyamdubey845455-source)**
+###  Crafted with ❤️ and ☕ by **[Satyam Kumar Dubey](https://github.com/satyamdubey845455-source)**
 
 *Empowering healthier, stronger lifestyles through modern engineering.*
 
